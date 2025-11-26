@@ -1,0 +1,54 @@
+<mxfile host="app.diagrams.net">
+    <diagram id="er-diagram-1" name="ER Diagram">
+        <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+
+                <!-- 背景（ダーク） -->
+                <mxCell id="bg" value="" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#1f1f1f;strokeColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="0" y="0" width="1200" height="900" as="geometry"/>
+                </mxCell>
+
+                <!-- contacts テーブル -->
+                <mxCell id="contacts_table" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#ffffff;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="120" width="340" height="300" as="geometry"/>
+                </mxCell>
+                <mxCell id="contacts_header" value="contacts テーブル" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#2b2b2b;strokeColor=#ffffff;fontColor=#ffffff;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="contacts_table">
+                    <mxGeometry x="0" y="0" width="340" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="contacts_text" value="id : bigint unsigned (PK)\ncategory_id : bigint unsigned (FK -> categories.id)\nfirst_name : varchar(255)\nlast_name : varchar(255)\ngender : tinyint (1=男性,2=女性,3=その他)\nemail : varchar(255)\ntel : varchar(255)\naddress : varchar(255)\nbuilding : varchar(255)\ndetail : text\ncreated_at : timestamp\nupdated_at : timestamp" style="text;html=1;align=left;verticalAlign=top;resizable=0;spacing=6;fontSize=12;fontColor=#000000;" vertex="1" parent="contacts_table">
+                    <mxGeometry x="8" y="40" width="324" height="248" as="geometry"/>
+                </mxCell>
+
+                <!-- categories テーブル -->
+                <mxCell id="categories_table" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#ffffff;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="140" width="300" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="categories_header" value="categories テーブル" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#2b2b2b;strokeColor=#ffffff;fontColor=#ffffff;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="categories_table">
+                    <mxGeometry x="0" y="0" width="300" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="categories_text" value="id : bigint unsigned (PK)\ncontent : varchar(255)\ncreated_at : timestamp\nupdated_at : timestamp" style="text;html=1;align=left;verticalAlign=top;resizable=0;spacing=6;fontSize=12;fontColor=#000000;" vertex="1" parent="categories_table">
+                    <mxGeometry x="8" y="40" width="284" height="96" as="geometry"/>
+                </mxCell>
+
+                <!-- users テーブル -->
+                <mxCell id="users_table" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#ffffff;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="460" width="340" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="users_header" value="users テーブル" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#2b2b2b;strokeColor=#ffffff;fontColor=#ffffff;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="users_table">
+                    <mxGeometry x="0" y="0" width="340" height="32" as="geometry"/>
+                </mxCell>
+                <mxCell id="users_text" value="id : bigint unsigned (PK)\nname : varchar(255)\nemail : varchar(255)\npassword : varchar(255)\ncreated_at : timestamp\nupdated_at : timestamp" style="text;html=1;align=left;verticalAlign=top;resizable=0;spacing=6;fontSize=12;fontColor=#000000;" vertex="1" parent="users_table">
+                    <mxGeometry x="8" y="40" width="324" height="112" as="geometry"/>
+                </mxCell>
+
+                <!-- 関係線: categories -> contacts -->
+                <mxCell id="edge_cat_con" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;rounded=1;html=1;endArrow=block;strokeColor=#ffffff;" parent="1" source="categories_table" target="contacts_table" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
