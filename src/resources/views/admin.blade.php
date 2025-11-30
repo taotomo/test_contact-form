@@ -43,11 +43,11 @@
                     <option value="5">その他</option>
                 </select>
             </div>
-            <div class="search-actions">
-                <button type="submit" class="search-btn">検索</button>
-            </div>
             <div class="date">
                 <input type="date" name="date_calendar" class="date_calendar">
+            </div>
+            <div class="search-actions">
+                <button type="submit" class="search-btn">検索</button>
             </div>
             <div class="reset">
                 <a href="/admin" class="reset-link">リセット</a>
