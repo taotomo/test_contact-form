@@ -42,6 +42,8 @@
                     <option value="4">ショップへのお問い合わせ</option>
                     <option value="5">その他</option>
                 </select>
+            </div>
+            <div class="search-actions">
                 <button type="submit" class="search-btn">検索</button>
             </div>
             <div class="date">

@@ -165,6 +165,25 @@ span[aria-current="page"] span {
     border: solid 1px #BAA899;
 }
 
+/* 検索操作グループ（検索ボタン単体をカテゴリと同じ位置揃え） */
+.search-actions {
+    display: flex;
+    align-items: center;
+}
+
+.search-actions .search-btn {
+    outline: none;
+    border: solid 1px #BAA899;
+    background: #f5f5f5;
+    padding: 10px 20px;
+    color: #82756A;
+    cursor: pointer;
+}
+
+.search-actions .search-btn:hover {
+    background: #e6e6e6;
+}
+
 .detail_get {
     width: 80px;
     padding: 10px 15px;
