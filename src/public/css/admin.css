@@ -184,6 +184,8 @@ span[aria-current="page"] span {
     background: #e6e6e6;
 }
 
+/* テーブル列ホバー強調 */
+
 .detail_get {
     width: 80px;
     padding: 10px 15px;
