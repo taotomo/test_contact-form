@@ -120,12 +120,13 @@ textarea::placeholder {
     height: 0;
     border-style: solid;
     border-width: 10px 10px 0 10px;
-    border-color: #BAA899;
+    border-color: #BAA899 transparent;
     position: absolute;
     top: 50%;
     right: 52%;
     transform: translateY(-50%);
     pointer-events: none;
+    z-index: 1;
 }
 
 .category-select {
@@ -133,6 +134,8 @@ textarea::placeholder {
     -webkit-appearance: none;
     appearance: none;
     padding-left: 5px;
+    padding-right: 25px;
+    background-image: none;
 }
 
 .detail-text {
@@ -163,4 +166,139 @@ textarea::placeholder {
 
 .error-message {
     color: red;
+}
+
+/* Responsive Design - Tablet (992px and below) */
+@media (max-width: 992px) {
+    .page-title {
+        font-size: 26px;
+    }
+
+    .input-contact {
+        width: 90%;
+    }
+
+    .table-cell {
+        width: 100%;
+    }
+
+    .name-separate {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    #name input,
+    .last_name_error,
+    .first_name_error {
+        width: 100%;
+    }
+
+    #tel-align {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .tel-input,
+    .tel-bou {
+        width: 100%;
+    }
+
+    .category-select {
+        width: 100%;
+    }
+}
+
+/* Responsive Design - Mobile (768px and below) */
+@media (max-width: 768px) {
+    * {
+        font-size: 16px;
+    }
+
+    .page-title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .input-contact {
+        width: 95%;
+    }
+
+    .table-line {
+        margin: 8px 0;
+    }
+
+    .column-name {
+        width: 35%;
+        padding-left: 10px;
+        font-size: 14px;
+    }
+
+    .table-cell {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .input-area {
+        height: 20px;
+        padding-left: 10px;
+        font-size: 14px;
+    }
+
+    .name-separate {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    #name input,
+    .last_name_error,
+    .first_name_error {
+        width: 100%;
+    }
+
+    #gender {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .radio-item {
+        width: 100%;
+    }
+
+    #tel-align {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .tel-input,
+    .tel-bou {
+        width: 100%;
+    }
+
+    .address-input,
+    .building-input {
+        width: 100%;
+    }
+
+    .category-select {
+        width: 100%;
+        padding-right: 25px;
+    }
+
+    #category::before {
+        right: 8px;
+        border-width: 8px 8px 0 8px;
+    }
+
+    .detail-text {
+        height: 60px;
+        width: 100%;
+        padding-top: 10px;
+    }
+
+    .confirm_button {
+        padding: 10px 20px;
+        margin-top: 30px;
+        font-size: 16px;
+    }
 }

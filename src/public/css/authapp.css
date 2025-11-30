@@ -32,3 +32,53 @@
 .main {
     padding: 30px 50px;
 }
+
+/* Responsive Design - Tablet (992px and below) */
+@media (max-width: 992px) {
+    .header-area {
+        padding: 10px 20px;
+    }
+
+    .header-ttl {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .link-area {
+        right: 20px;
+        font-size: 14px;
+    }
+
+    .main {
+        padding: 20px 30px;
+    }
+}
+
+/* Responsive Design - Mobile (768px and below) */
+@media (max-width: 768px) {
+    .header-area {
+        padding: 10px 12px;
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .header-ttl {
+        font-size: 24px;
+        line-height: 30px;
+        margin: 0;
+        flex: 1;
+    }
+
+    .link-area {
+        position: static;
+        right: auto;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .main {
+        padding: 16px 12px;
+    }
+}

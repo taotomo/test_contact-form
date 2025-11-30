@@ -68,3 +68,62 @@ h1 {
 .error-message {
     color: red;
 }
+
+/* Responsive Design - Tablet (992px and below) */
+@media (max-width: 992px) {
+    .register-form {
+        width: 80%;
+        padding: 30px 40px;
+    }
+
+    .register-info input {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 18px;
+    }
+
+    .register-info p {
+        font-size: 18px;
+    }
+
+    .register-button button {
+        padding: 10px 25px;
+    }
+}
+
+/* Responsive Design - Mobile (768px and below) */
+@media (max-width: 768px) {
+    * {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .register-form {
+        width: 95%;
+        padding: 20px 16px;
+    }
+
+    .register-info input {
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 16px;
+    }
+
+    .register-info p {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .register-button {
+        margin-top: 20px;
+    }
+
+    .register-button button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}

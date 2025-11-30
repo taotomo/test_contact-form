@@ -46,7 +46,8 @@
                         <div class="radio-item">
                             <input class="input-area gender-radio" type="radio" name="gender" value="その他">
                             <label>その他</label>
-                        </div></br>
+                        </div>
+                        <br>
                         <div class="error-message">
                             @error('gender')
                             {{$message}}

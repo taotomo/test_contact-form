@@ -30,3 +30,38 @@
 .main{
     padding:30px 50px;
 }
+
+/* Responsive Design - Tablet (992px and below) */
+@media (max-width: 992px) {
+    .header-index {
+        padding: 15px 0;
+    }
+
+    .header-ttl {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .main {
+        padding: 20px 30px;
+    }
+}
+
+/* Responsive Design - Mobile (768px and below) */
+@media (max-width: 768px) {
+    .header-index {
+        padding: 10px 12px;
+        min-height: 50px;
+        justify-content: center;
+    }
+
+    .header-ttl {
+        font-size: 24px;
+        line-height: 30px;
+        margin: 0;
+    }
+
+    .main {
+        padding: 16px 12px;
+    }
+}

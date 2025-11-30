@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// お問い合わせフォーム
 Route::get('/', [ContactController::class, 'index'])->name("rewrite");
 
 Route::post('/confirm', [ContactController::class, 'confirm']);
