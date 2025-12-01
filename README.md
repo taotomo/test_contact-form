@@ -2,8 +2,9 @@
 
 ## 環境構築
 ### Dockerビルド
-- git clone git@github.com:yukit4mu/test_contact-form.git
+- git clone https://github.com/taotomo/test_contact-form.git
 - docker-compose up -d --build
+
 ### Laravel環境構築
 - docker-compose exec php bash
 - composer install
@@ -33,13 +34,13 @@ erDiagram
   contacts {
     bigint id PK
     bigint categry_id FK
-    varchar first_name "NOT NULL"
-    varchar last_name "NOT NULL"
+    varchar(255) first_name "NOT NULL"
+    varchar(255) last_name "NOT NULL"
     tinyint gender "NOT NULL"
-    varchar email "NOT NULL"
-    varchar tell "NOT NULL"
-    varchar address "NOT NULL"
-    varchar building
+    varchar(255) email "NOT NULL"
+    varchar(255) tell "NOT NULL"
+    varchar(255) address "NOT NULL"
+    varchar(255) building
     text detail "NOT NULL"
     timestamp created_at
     timestamp deleted_at
@@ -47,16 +48,16 @@ erDiagram
 
    categories{
     bigint id PK
-    varchar content "NOT NULL"
+    varchar(255) content "NOT NULL"
     timestamp created_at
     timestamp deleted_at
   }
 
   users {
     bigint id PK
-    varchar name "NOT NULL"
-    varchar email "NOT NULL"
-    varchar password "NOT NULL"
+    varchar(255) name "NOT NULL"
+    varchar(255) email "NOT NULL"
+    varchar(255) password "NOT NULL"
     timestamp created_at
     timestamp deleted_at
   }

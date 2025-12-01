@@ -85,20 +85,20 @@
                         詳細
                     </div>
                 </td>
-                <div class="hidden-column">
+                <td style="display:none" class="hidden-column">
                     <p class="tel_get{{$contact['id']}}">{{$contact['tel']}}</p>
                     <p class="address_get{{$contact['id']}}">{{$contact['address']}}</p>
                     <p class="building_get{{$contact['id']}}">{{$contact['building']}}</p>
                     <p class="detail_get{{$contact['id']}}">{{$contact['detail']}}</p>
-                </div>
+                </td>
             </tr>
             @endforeach
         </table>
         <!-- 以下モーダル -->
-        <div class="modal">
-            <div class="close-button">
+        <div class="modal" role="dialog" aria-modal="true" aria-label="お問い合わせ詳細">
+            <button class="close-button" type="button" aria-label="閉じる">
                 ×
-            </div>
+            </button>
             <table class="modal-table">
                 <tr>
                     <th class="modal-title">お名前</th>
@@ -130,7 +130,7 @@
                 </tr>
                 <tr>
                     <th class="modal-title detail-title">お問い合わせ内容</th>
-                    <td class="detail-modal modal-cell"><textarea class="detail-text-modal"></textarea></td>
+                    <td class="detail-modal modal-cell"><textarea class="detail-text-modal" readonly aria-readonly="true"></textarea></td>
                 </tr>
             </table>
             <div class="delete">

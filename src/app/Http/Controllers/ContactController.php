@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
-use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
 use Normalizer;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 
 class ContactController extends Controller
@@ -33,7 +31,7 @@ class ContactController extends Controller
         return view('confirm', ['contact' => $contact, 'entireTel' => $entireTel, 'fullName' => $fullName]);
     }
 
-    public function store(Request $request)
+    public function store(ContactRequest $request)
     {
         if ($request->get('action') === 'modify') {
             return redirect()->route('rewrite')->withInput();
@@ -80,17 +78,20 @@ class ContactController extends Controller
     public function admin()
     {
         $contacts = Contact::Paginate(10);
-
-        for ($i = 0; $i < count($contacts); $i++) {
-            $gender_type = $contacts[$i]['gender'];
-            if ($gender_type == 1) {
-                $contacts[$i]['gender'] = "男性";
-            } elseif ($gender_type == 2) {
-                $contacts[$i]['gender'] = "女性";
-            } elseif ($gender_type == 3) {
-                $contacts[$i]['gender'] = "その他";
+        $contacts->getCollection()->transform(function ($contact) {
+            switch ($contact->gender) {
+                case 1:
+                    $contact->gender = '男性';
+                    break;
+                case 2:
+                    $contact->gender = '女性';
+                    break;
+                case 3:
+                    $contact->gender = 'その他';
+                    break;
             }
-        }
+            return $contact;
+        });
         return view('admin', ['contacts' => $contacts]);
     }
 
@@ -108,11 +109,10 @@ class ContactController extends Controller
 
         if (!empty($name_email_filter)) {
             $normalized_filter = Normalizer::normalize($name_email_filter, Normalizer::FORM_C);
-
-            $query->where(function ($query) use ($normalized_filter) {
-                $query->where(Contact::raw("CONCAT(last_name,first_name)"), 'like', '%' . $normalized_filter . '%');
-            })
-            ->orWhere('email', 'like', '%' . $normalized_filter . '%');
+            $query->where(function ($q) use ($normalized_filter) {
+                $q->whereRaw("CONCAT(last_name, first_name) LIKE ?", ['%' . $normalized_filter . '%'])
+                  ->orWhere('email', 'like', '%' . $normalized_filter . '%');
+            });
         }
         if (!empty($gender_dropdown)) {
             $query->where('gender', $gender_dropdown);
@@ -127,21 +127,20 @@ class ContactController extends Controller
 
 
         $contacts = $query->Paginate(10);
-
-        if (!empty($contacts)) {
-            for ($i = 0; $i < $columnsCount; $i++) {
-                if (isset($contacts[$i]['gender'])) {
-                    $gender_type = $contacts[$i]['gender'];
-                    if ($gender_type == 1) {
-                        $contacts[$i]['gender'] = "男性";
-                    } elseif ($gender_type == 2) {
-                        $contacts[$i]['gender'] = "女性";
-                    } elseif ($gender_type == 3) {
-                        $contacts[$i]['gender'] = "その他";
-                    }
-                }
+        $contacts->getCollection()->transform(function ($contact) {
+            switch ($contact->gender) {
+                case 1:
+                    $contact->gender = '男性';
+                    break;
+                case 2:
+                    $contact->gender = '女性';
+                    break;
+                case 3:
+                    $contact->gender = 'その他';
+                    break;
             }
-        }
+            return $contact;
+        });
 
         return view('admin', ['contacts' => $contacts]);
     }
